@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class PhamNhan extends Model
 {
-    protected  $table = 'phamnhan' ;
-    protected  $primaryKey = 'id_pn';
+    protected $table = 'PhamNhan';
+    protected $primaryKey = 'pn_id';
     protected $fillable = [
-        'id_pg',
-        'ho_va_ten',
+        'pg_id',
+        'ten',
         'ngay_sinh',
-        'gioi_tinh',
+        'gioitinh',
         'so_cmt',
         'toi_danh',
-        'ngay_vao_trai',
-        'thoi_gian_linh_an',
+        'ngay_vao',
+        'thoi_gian',
         'trang_thai',
         'ghi_chu',
         'created_at',

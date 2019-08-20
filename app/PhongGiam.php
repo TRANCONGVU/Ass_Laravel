@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class PhongGiam extends Model
 {
-    protected  $table = 'phonggiam' ;
-    protected  $primaryKey = 'id_pg';
+    protected $table = 'PhongGiam';
+    protected $primaryKey = 'pg_id';
     protected $fillable = [
-        'id_gt',
+        'gt_id',
         'ten_pg',
-        'soluong_phamnhan',
+        'so_pg',
         'cho_trong',
         'ghi_chu',
         'created_at',
-        'updated_at',
+        'updated_at'
     ];
 }

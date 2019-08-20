@@ -25,3 +25,35 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+$factory->define(\App\GiamThi::class , function (Faker $faker){
+   return [
+        'ten' => $faker -> name,
+        'gioi_tinh' => $faker -> boolean,
+        'so_cmt' => $faker -> bankAccountNumber,
+       'chuc_vu' => $faker -> title,
+        'ghi_chu' => $faker -> title
+   ];
+});
+$factory -> define(\App\PhongGiam::class,function (Faker $faker){
+   return[
+        'gt_id' => $faker -> randomFloat(0,1,100),
+       'ten_pg' => $faker -> company,
+        'so_pn' => $faker -> numberBetween(1 , 20),
+       'cho_trong' => $faker -> numberBetween(15 , 20),
+       'ghi_chu' => $faker -> title,
+   ];
+});
+$factory -> define(\App\PhamNhan::class,function (Faker $faker){
+   return[
+       'pg_id' => $faker -> randomFloat(0,1,40),
+       'ten' => $faker -> name,
+       'ngay_sinh' => $faker -> dateTime,
+       'gioitinh' => $faker -> boolean,
+       'so_cmt' =>$faker -> creditCardNumber,
+       'toi_danh' => $faker -> title,
+        'ngay_vao' => $faker -> dateTime,
+        'thoi_gian' => $faker -> buildingNumber,
+        'trang_thai' => $faker -> titleMale,
+       'ghi_chu' => $faker ->title
+   ] ;
+});

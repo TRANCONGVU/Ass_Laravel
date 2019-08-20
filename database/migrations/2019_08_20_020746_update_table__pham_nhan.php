@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdatePhamnhan extends Migration
+class UpdateTablePhamNhan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class UpdatePhamnhan extends Migration
      */
     public function up()
     {
-        Schema::table('phamnhan', function (Blueprint $table) {
-            $table->foreign('id_pg')->references('id_pg')->on('phonggiam');
+        Schema::table('PhamNhan', function (Blueprint $table) {
+            $table->foreign('pg_id')->references('pg_id')->on('PhongGiam');
         });
     }
 
@@ -25,8 +25,8 @@ class UpdatePhamnhan extends Migration
      */
     public function down()
     {
-        Schema::table('phamnhan', function (Blueprint $table) {
-            $table->dropForeign(["id_pg"]);
+        Schema::table('PhamNhan', function (Blueprint $table) {
+            //
         });
     }
 }

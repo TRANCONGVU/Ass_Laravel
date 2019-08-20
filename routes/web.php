@@ -18,3 +18,4 @@ Route::get('/', function () {
 Route::get('hello' ,"DemoController@helloWorld");
 
 Route::get('/say-hello' , "DemoController@sayHello");
+Route::get('/danh-sach-pham-nhan',"MyController@PhamNhanList");
