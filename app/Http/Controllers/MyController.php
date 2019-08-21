@@ -9,7 +9,7 @@ use App\PhongGiam;
 class MyController extends Controller
 {
     function PhamNhanList(){
-        $phamnhans = PhamNhan::orderBy("pn_id","ASC")->paginate(20);
-        return view('phamnhanlist',compact("phamnhans"));
+        $phamnhans = PhamNhan::orderBy("pn_id","ASC")->paginate(10);
+        return view('danhsach.phamnhanlist',compact("phamnhans"));
     }
 }

@@ -1,0 +1,11 @@
+.danhsach {
+    font-size: 12px;
+    font-weight: 500;
+}
+thead th {
+    padding: 12px !important;
+    font-weight: 500 !important;
+}
+.menu {
+    margin-top: 20px;
+}
