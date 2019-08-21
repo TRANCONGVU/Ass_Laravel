@@ -36,7 +36,7 @@ $factory->define(\App\GiamThi::class , function (Faker $faker){
 });
 $factory -> define(\App\PhongGiam::class,function (Faker $faker){
    return[
-        'gt_id' => $faker -> randomFloat(0,1,100),
+        'gt_id' => $faker -> randomFloat(0,1,20),
        'ten_pg' => $faker -> company,
         'so_pn' => $faker -> numberBetween(1 , 20),
        'cho_trong' => $faker -> numberBetween(15 , 20),
