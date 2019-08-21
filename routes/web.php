@@ -19,3 +19,7 @@ Route::get('hello' ,"DemoController@helloWorld");
 
 Route::get('/say-hello' , "DemoController@sayHello");
 Route::get('/danh-sach-pham-nhan',"MyController@PhamNhanList");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
