@@ -18,7 +18,10 @@ Route::get('/', function () {
 Route::get('hello' ,"DemoController@helloWorld");
 
 Route::get('/say-hello' , "DemoController@sayHello");
-Route::get('/danh-sach-pham-nhan',"MyController@PhamNhanList");
+Route::get('/pham-nhan',"MyController@PhamNhanList");
+Route::get('/giam-thi',"MyController@GiamThiList");
+Route::get('/phong-giam',"MyController@PhongGiamList");
+
 
 Auth::routes();
 

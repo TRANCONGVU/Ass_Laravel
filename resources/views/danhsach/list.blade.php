@@ -5,12 +5,9 @@
 
         </div>
     </div>
-    <div class="container mt-1">
+    <div class="container-fluid mt-1">
         <div class="row">
-            <div class="col-md-2 menu">
-                <a href="#">Danh sách phạm nhân</a>
-            </div>
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <table class="table table-striped table-bordered">
                     <thead class="thead-dark">
                         <tr>
@@ -33,7 +30,7 @@
                             <td scope="row">{{$phamnhan -> pn_id}}</td>
                             <td>{{$phamnhan -> ten}}</td>
                             <td>{{$phamnhan -> ngay_sinh}}</td>
-                            <td>{{$phamnhan -> gioitinh}}</td>
+                            <td>{{ \App\PhamNhan::$_Gender[$phamnhan->gioitinh] }}</td>
                             <td>{{$phamnhan -> so_cmt}}</td>
                             <td>{{$phamnhan -> toi_danh}}</td>
                             <td>{{$phamnhan -> ngay_vao}}</td>
@@ -47,8 +44,7 @@
                 </table>
                 {!! $phamnhans -> Links() !!}
             </div>
-
-
         </div>
+
     </div>
 @endsection
