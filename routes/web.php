@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/list',function()
+{
+    return view('danhsach.danhsach');
+});
+
 Route::get('hello' ,"DemoController@helloWorld");
 
 Route::get('/say-hello' , "DemoController@sayHello");

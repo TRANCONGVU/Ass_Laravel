@@ -10,6 +10,7 @@
                     <th scope="col">Số Phạm Nhân</th>
                     <th scope="col">Chỗ Trống</th>
                     <th scope="col">Ghi chú</th>
+                    <th scope="col">Giám thị</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,9 +18,10 @@
                     <tr>
                         <td scope="row">{{ $phonggiam -> pg_id }}</td>
                         <td>{{ $phonggiam -> ten_pg }}</td>
-                        <td>{{ $phonggiam -> so_pn }}</td>
-                        <td>{{ $phonggiam -> cho_trong }}</td>
+                        <td>{{ $phonggiam -> so_pn }} &nbsp người</td>
+                        <td>{{ $phonggiam -> cho_trong }}&nbsp chỗ trống</td>
                         <td>{{ $phonggiam -> ghi_chu }}</td>
+                        <td>{{ $phonggiam -> gt_id }}</td>
                     </tr>
                 @endforeach
             </tbody>

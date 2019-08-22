@@ -12,7 +12,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Tên</th>
+                            <th scope="col">Tên Phạm Nhân</th>
                             <th scope="col">Ngày sinh</th>
                             <th scope="col">Giới tính</th>
                             <th scope="col">CMT</th>
@@ -34,7 +34,7 @@
                             <td>{{$phamnhan -> so_cmt}}</td>
                             <td>{{$phamnhan -> toi_danh}}</td>
                             <td>{{$phamnhan -> ngay_vao}}</td>
-                            <td>{{$phamnhan -> thoi_gian}}</td>
+                            <td>{{$phamnhan -> thoi_gian}} &nbsp ngày</td>
                             <td>{{$phamnhan -> trang_thai}}</td>
                             <td>{{$phamnhan -> ghi_chu}}</td>
                             <td>{{$phamnhan -> pg_id}}</td>
