@@ -9,7 +9,7 @@ use App\PhongGiam;
 class MyController extends Controller
 {
     function PhamNhanList(){
-        $phamnhans = PhamNhan::leftjoin("phonggiam","phamnhan.pg_id","=","phonggiam.pg_id")
+        $phamnhans = PhamNhan::join("phonggiam","phamnhan.pg_id","=","phonggiam.pg_id")
         ->orderBy("pn_id","ASC")->paginate(10,["phamnhan.pn_id"
         ,"ten_pg as pg_id","ten","phamnhan.ngay_sinh","phamnhan.gioitinh","phamnhan.so_cmt","phamnhan.toi_danh","phamnhan.ngay_vao",
         "phamnhan.thoi_gian","phamnhan.ghi_chu"]);
@@ -20,7 +20,7 @@ class MyController extends Controller
         return view('danhsach.listgt',compact('giamthis'));
     }
     function PhongGiamList(){
-        $phonggiams =  PhongGiam::leftjoin("giamthi","phonggiam.gt_id","=","giamthi.gt_id")
+        $phonggiams =  PhongGiam::join("giamthi","phonggiam.gt_id","=","giamthi.gt_id")
         ->orderBy("pg_id","ASC")->paginate(10 ,["phonggiam.pg_id","phonggiam.ten_pg","phonggiam.so_pn","phonggiam.cho_trong"
         ,"phonggiam.ghi_chu","ten as gt_id"
         ]);
