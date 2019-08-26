@@ -16,7 +16,7 @@ class MyController extends Controller
         return view('danhsach.list',compact("phamnhans"));
     }
     function GiamThiList(){
-        $giamthis = GiamThi::orderBy("gt_id","ASC")->paginate(10,["gt_id","chuc_vu","ten","gioi_tinh","so_cmt",
+        $giamthis = giamthi::orderBy("gt_id","ASC")->paginate(10,["gt_id","chuc_vu","ten","gioi_tinh","so_cmt",
         "ghi_chu"]);
         return view('danhsach.listgt',compact('giamthis'));
     }
