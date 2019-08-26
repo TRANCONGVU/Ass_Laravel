@@ -39,3 +39,7 @@ Route::post('/them-giam-thi',"MyController@luuGT");
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
