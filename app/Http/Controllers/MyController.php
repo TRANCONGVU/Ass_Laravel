@@ -10,9 +10,9 @@ class MyController extends Controller
 {
     function PhamNhanList(){
         $phamnhans = PhamNhan::join("PhongGiam","PhamNhan.pg_id","=","PhongGiam.pg_id")
-        ->orderBy("pn_id","ASC")->paginate(10,["phamnhan.pn_id"
-        ,"ten_pg as pg_id","ten","phamnhan.ngay_sinh","phamnhan.gioitinh","phamnhan.trang_thai","phamnhan.so_cmt","phamnhan.toi_danh","phamnhan.ngay_vao",
-        "phamnhan.thoi_gian","phamnhan.ghi_chu"]);
+        ->orderBy("pn_id","ASC")->paginate(10,["PhamNhan.pn_id"
+        ,"ten_pg as pg_id","ten","PhamNhan.ngay_sinh","PhamNhan.gioitinh","PhamNhan.trang_thai","PhamNhan.so_cmt","PhamNhan.toi_danh","PhamNhan.ngay_vao",
+        "PhamNhan.thoi_gian","PhamNhan.ghi_chu"]);
         return view('danhsach.list',compact("phamnhans"));
     }
     function GiamThiList(){
@@ -22,8 +22,8 @@ class MyController extends Controller
     }
     function PhongGiamList(){
         $phonggiams =  PhongGiam::join("GiamThi","PhongGiam.gt_id","=","GiamThi.gt_id")
-        ->orderBy("pg_id","ASC")->paginate(10 ,["phonggiam.pg_id","phonggiam.ten_pg","phonggiam.so_pn","phonggiam.cho_trong"
-        ,"phonggiam.ghi_chu","ten as gt_id"
+        ->orderBy("pg_id","ASC")->paginate(10 ,["PhongGiam.pg_id","PhongGiam.ten_pg","PhongGiam.so_pn","PhongGiam.cho_trong"
+        ,"PhongGiam.ghi_chu","ten as gt_id"
         ]);
         return view('danhsach.listpg',compact('phonggiams'));
     }
