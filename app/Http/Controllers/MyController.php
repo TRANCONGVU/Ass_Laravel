@@ -21,11 +21,11 @@ class MyController extends Controller
         return view('danhsach.listgt',compact('giamthis'));
     }
     function PhongGiamList(){
-        $PhongGiams =  PhongGiam::join("GiamThi","PhongGiam.gt_id","=","GiamThi.gt_id")
+        $phonggiams =  PhongGiam::join("GiamThi","PhongGiam.gt_id","=","GiamThi.gt_id")
         ->orderBy("pg_id","ASC")->paginate(10 ,["PhongGiam.pg_id","PhongGiam.ten_pg","PhongGiam.so_pn","PhongGiam.cho_trong"
         ,"PhongGiam.ghi_chu","ten as gt_id"
         ]);
-        return view('danhsach.listpg',compact('PhongGiams'));
+        return view('danhsach.listpg',compact('phonggiams'));
     }
     public $messages = [
         "required" => "vui lòng nhập vào thông tin",
@@ -44,8 +44,8 @@ class MyController extends Controller
     ];
     function themPN(){
         $phamnhans = PhamNhan::orderBy("pn_id","ASC")->get();
-        $PhongGiams = PhongGiam::orderBy("pg_id","ASC")->get();
-        return view('them.themphamnhan',compact("phamnhans","PhongGiams"));
+        $phonggiams = PhongGiam::orderBy("pg_id","ASC")->get();
+        return view('them.themphamnhan',compact("phamnhans","phonggiams"));
     }
     public function luuPN(request $request){
         // dd($request->all());
@@ -92,9 +92,9 @@ class MyController extends Controller
     }
 
     function themPG(){
-        $PhongGiams = PhongGiam::orderBy("pg_id","DESC")->get();
+        $phonggiams = PhongGiam::orderBy("pg_id","DESC")->get();
         $giamthis = GiamThi::orderBy("gt_id")->get();
-        return view("them.themphong" , compact("PhongGiams","giamthis"));
+        return view("them.themphong" , compact("phonggiams","giamthis"));
     }
     function luuPG(request $request){
         $this->validate($request,[
