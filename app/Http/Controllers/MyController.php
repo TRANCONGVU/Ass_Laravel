@@ -9,7 +9,7 @@ use App\PhongGiam;
 class MyController extends Controller
 {
     function PhamNhanList(){
-        $phamnhans = PhamNhan::join("phonggiam","phamnhan.pg_id","=","phonggiam.pg_id")
+        $phamnhans = PhamNhan::join("PhongGiam","PhamNhan.pg_id","=","PhongGiam.pg_id")
         ->orderBy("pn_id","ASC")->paginate(10,["phamnhan.pn_id"
         ,"ten_pg as pg_id","ten","phamnhan.ngay_sinh","phamnhan.gioitinh","phamnhan.trang_thai","phamnhan.so_cmt","phamnhan.toi_danh","phamnhan.ngay_vao",
         "phamnhan.thoi_gian","phamnhan.ghi_chu"]);
