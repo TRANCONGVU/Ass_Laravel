@@ -17,7 +17,7 @@
                 <tr>
                     <td scope="row">{{ $giamthi -> gt_id }}</td>
                     <td>{{ $giamthi -> ten }}</td>
-                    <td>{{ $giamthi -> gioi_tinh }}</td>
+                    <td>{{ \App\GiamThi::$_Gender[$giamthi -> gioi_tinh] }}</td>
                     <td>{{ $giamthi -> so_cmt }}</td>
                     <td>{{ $giamthi -> chuc_vu }}</td>
                     <td>{{ $giamthi -> ghi_chu }}</td>

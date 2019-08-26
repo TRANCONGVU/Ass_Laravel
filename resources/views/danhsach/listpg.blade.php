@@ -26,8 +26,15 @@
                 @endforeach
             </tbody>
         </table>
-        {!! $phonggiams -> Links() !!}
+        <div class="container d-flex justify-content-between">
+            <div>
+                    {!! $phonggiams -> Links() !!}
+            </div>
+            <a href="{{ url('/them-phong-giam') }}" class="btn btn-outline-dark mb-3">Tạo Thêm Phòng</a>
+        </div>
+
     </div>
+
 </div>
 
 @endsection

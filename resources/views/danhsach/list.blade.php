@@ -8,6 +8,7 @@
     <div class="container-fluid mt-1">
         <div class="row">
             <div class="col-md-12">
+
                 <table class="table table-striped table-bordered">
                     <thead class="thead-dark">
                         <tr>
@@ -34,7 +35,7 @@
                             <td>{{$phamnhan -> so_cmt}}</td>
                             <td>{{$phamnhan -> toi_danh}}</td>
                             <td>{{$phamnhan -> ngay_vao}}</td>
-                            <td>{{$phamnhan -> thoi_gian}} &nbsp ngày</td>
+                            <td>{{$phamnhan -> thoi_gian}} &nbsp </td>
                             <td>{{$phamnhan -> trang_thai}}</td>
                             <td>{{$phamnhan -> ghi_chu}}</td>
                             <td>{{$phamnhan -> pg_id}}</td>
@@ -42,9 +43,13 @@
                         @endforeach
                     </tbody>
                 </table>
-                {!! $phamnhans -> Links() !!}
+                <div class="d-flex justify-content-between">
+
+                    <a href="{{ url('/them-pham-nhan') }}" class="btn btn-outline-danger m-2">Thêm Phạm Nhân</a>
+                    {!! $phamnhans -> Links() !!}
+                </div>
+
             </div>
         </div>
-
     </div>
 @endsection

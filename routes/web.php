@@ -27,6 +27,11 @@ Route::get('/pham-nhan',"MyController@PhamNhanList");
 Route::get('/giam-thi',"MyController@GiamThiList");
 Route::get('/phong-giam',"MyController@PhongGiamList");
 
+Route::get('/them-pham-nhan',"MyController@themPN");
+Route::post('them-pham-nhan',"MyController@luuPN");
+
+Route::get('/them-phong-giam',"MyController@themPG");
+Route::post('them-phong-giam',"MyController@luuPG");
 
 Auth::routes();
 

@@ -12,6 +12,7 @@ class PhongGiam extends Model
         'gt_id',
         'ten_pg',
         'so_pg',
+        'so_pn',
         'cho_trong',
         'ghi_chu',
         'created_at',

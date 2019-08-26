@@ -17,4 +17,11 @@ class GiamThi extends Model
         'created_at',
         'update_at',
     ];
+    public const ACTIVE = 0;
+    public const DEACTIVE = 1;
+
+    public static $_Gender = [
+        self ::ACTIVE => 'Nam',
+        self ::DEACTIVE => 'Nữ',
+    ];
 }
