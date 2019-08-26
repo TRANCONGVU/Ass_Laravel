@@ -26,5 +26,6 @@
         </tbody>
     </table>
     {!! $giamthis -> Links() !!}
+    <a href="{{ url('/them-giam-thi') }}" class="btn btn-outline-danger">Thêm giám thị</a>
 </div>
 @endsection

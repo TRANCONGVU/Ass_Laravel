@@ -1,6 +1,6 @@
 @extends('layout')
 @section('body')
-    <div class="container mt-5">
+    <div class="container my-5">
         <h1>Thêm Phòng Giam</h1>
         <form action="" method="POST">
             @csrf

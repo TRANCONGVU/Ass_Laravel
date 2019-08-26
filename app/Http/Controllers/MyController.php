@@ -84,4 +84,28 @@ class MyController extends Controller
         }
         return redirect("/phong-giam");
     }
+
+    function themGT(){
+        $giamthis = GiamThi::orderBy("gt_id","DESC")->get();
+        return view("them.themgiamthi", compact("giamthis"));
+    }
+    function luuGT(request $request){
+        // dd($request->all());
+        // $this->validate($request,[
+        //     "ten" => "required|string|max:255",
+        // ]);
+        try{
+            GiamThi::create([
+                "ten" => $request -> get("ten"),
+                "gioi_tinh" => $request -> get("gioi_tinh"),
+                "so_cmt" => $request -> get("so_cmt"),
+                "chuc_vu" => $request -> get("chuc_vu"),
+                "ghi_chu" => $request -> get("ghi_chu")
+            ])-> save();
+        }
+        catch(Exception $e){
+            die($e -> getMessage());
+        }
+        return redirect("/giam-thi");
+    }
 }
