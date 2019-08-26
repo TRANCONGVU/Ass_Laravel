@@ -27,9 +27,21 @@ class MyController extends Controller
         ]);
         return view('danhsach.listpg',compact('phonggiams'));
     }
+    public $messages = [
+        "required" => "vui lòng nhập vào thông tin",
+        "string" => "Phải nhập vào 1 chuỗi",
+        "numeric" => "Nhập vào một số",
+        "min" => "giá trị tối thiểu 0",
+        "max" => "tối đa 255 ký tự",
+        "unique" => "Đã tồn tại",
+    ];
 
-
-
+    public $rules = [
+        "book_name" => "required|string|max:255|unique:book",
+        "qty" => "required|numeric|min:0",
+        "author_id" => "required|numeric",
+        "nxb_id" => "required|numeric"
+    ];
     function themPN(){
         $phamnhans = PhamNhan::orderBy("pn_id","ASC")->get();
         $phonggiams = PhongGiam::orderBy("pg_id","ASC")->get();
@@ -37,10 +49,28 @@ class MyController extends Controller
     }
     public function luuPN(request $request){
         // dd($request->all());
-        $this->validate($request,[
-            "ten" => "required|string|max:255|unique:phamnhan",
-            "thoi_gian" => "required|numeric|min:0"
-        ]);
+        $messages = [
+            "required" => "vui lòng nhập thông tin vào trường này",
+            "string" => "Phải nhập vào 1 chuỗi",
+            "numeric" => "Nhập vào một số",
+            "min" => "giá trị tối thiểu 0",
+            "max" => "tối đa 255 ký tự",
+            "unique" => "Đã tồn tại",
+            "date" => "nhập vào ngày tháng năm"
+        ];
+
+        $rules =[
+            "pg_id" => "required|numeric",
+            "ten" => "required|string",
+            "ngay_sinh" => "required|date",
+            "so_cmt" => "required|numeric",
+            "toi_danh" => "required|string",
+            "ngay_vao" => "date",
+            "thoi_gian" => "required|numeric",
+            "trang_thai" => "required|string",
+            "ghi_chu" => "required|string"
+        ];
+        $this->validate($request, $rules , $messages);
         try{
             PhamNhan::create([
                 "pg_id" => $request -> get("pg_id"),
