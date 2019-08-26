@@ -21,7 +21,7 @@ class MyController extends Controller
         return view('danhsach.listgt',compact('giamthis'));
     }
     function PhongGiamList(){
-        $phonggiams =  PhongGiam::join("giamthi","phonggiam.gt_id","=","giamthi.gt_id")
+        $phonggiams =  PhongGiam::join("GiamThi","PhongGiam.gt_id","=","GiamThi.gt_id")
         ->orderBy("pg_id","ASC")->paginate(10 ,["phonggiam.pg_id","phonggiam.ten_pg","phonggiam.so_pn","phonggiam.cho_trong"
         ,"phonggiam.ghi_chu","ten as gt_id"
         ]);
