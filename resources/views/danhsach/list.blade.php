@@ -39,7 +39,7 @@
                             <td>{{$phamnhan -> ghi_chu}}</td>
                             <td>{{$phamnhan -> pg_id}}</td>
                             <td>
-                                <a href="{{ url("suaPN?id=" .$phamnhan -> pn_id) }}">Sửa</a>
+                                <a href="{{ url("suaPN?id=" .$phamnhan -> pn_id) }}">Sửa</a> &nbsp
                                 <a onclick="return confirm('Bạn chắc chắn muốn xóa??')"  href="{{ url('/xoaPN/' .$phamnhan -> pn_id) }}">Xóa</a>
                             </td>
                         </tr>

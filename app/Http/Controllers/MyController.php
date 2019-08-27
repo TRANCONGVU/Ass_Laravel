@@ -183,7 +183,7 @@ class MyController extends Controller
             "ten" => "required|string|max:255",
             "pg_id" => "required|numeric",
             "ngay_sinh" => "required",
-            "so_cmt" => "required|numeric",
+            "so_cmt" => "required|numeric|unique:phamnhan,so_cmt,".$phamnhan -> pn_id. ",pn_id",
             "toi_danh" => "required|string",
             "ngay_vao" => "required",
             "thoi_gian" => "required",
