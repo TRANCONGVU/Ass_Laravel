@@ -169,7 +169,7 @@ class MyController extends Controller
     }
 
     function updatePN(Request $request){
-        $phamnhan = PhamNhan::find($request -> get("id"));
+        $phamnhan = PhamNhan::find($request -> get("pn_id"));
         $messages = [
             "required" => "vui lòng nhập vào thông tin",
             "string" => "Phải nhập vào 1 chuỗi",
@@ -199,7 +199,7 @@ class MyController extends Controller
                 "ten" => $request -> get("ten"),
                 "ngay_sinh" => $request -> get("ngay_sinh"),
                 "ngay_vao" => $request -> get("ngay_vao"),
-                "gioitinh" => $request -> get("gioi_tinh"),
+                // "gioitinh" => $request -> get("gioi_tinh"),
                 "so_cmt" => $request -> get("so_cmt"),
                 "toi_danh" => $request -> get("toi_danh"),
                 "thoi_gian" => $request -> get("thoi_gian"),

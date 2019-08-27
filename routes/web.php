@@ -42,6 +42,8 @@ Route::get('/xoaPN/{id}',"MyController@xoaPN");
 Route::get('/suaPN',"MyController@suaPN");
 Route::post('/suaPN',"MyController@updatePN");
 //
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
