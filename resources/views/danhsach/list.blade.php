@@ -35,7 +35,7 @@
                             <td>{{$phamnhan -> so_cmt}}</td>
                             <td>{{$phamnhan -> toi_danh}}</td>
                             <td>{{$phamnhan -> ngay_vao}}</td>
-                            <td>{{$phamnhan -> thoi_gian}} &nbsp </td>
+                            <td>{{$phamnhan -> thoi_gian}} &nbsp Năm</td>
                             <td>{{$phamnhan -> trang_thai}}</td>
                             <td>{{$phamnhan -> ghi_chu}}</td>
                             <td>{{$phamnhan -> pg_id}}</td>
