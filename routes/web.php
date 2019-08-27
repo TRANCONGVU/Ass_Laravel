@@ -36,6 +36,12 @@ Route::post('them-phong-giam',"MyController@luuPG");
 Route::get('/them-giam-thi',"MyController@themGT");
 Route::post('/them-giam-thi',"MyController@luuGT");
 
+//sửa xóa dữ liệu
+
+Route::get('/xoaPN/{id}',"MyController@xoaPN");
+Route::get('/suaPN',"MyController@suaPN");
+Route::post('/suaPN',"MyController@updatePN");
+//
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

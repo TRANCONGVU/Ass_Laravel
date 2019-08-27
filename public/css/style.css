@@ -5,6 +5,7 @@
 thead th {
     padding: 12px !important;
     font-weight: 500 !important;
+    font-size: 12px;
 }
 .menu {
     margin-top: 20px;

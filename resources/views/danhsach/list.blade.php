@@ -1,10 +1,8 @@
 @extends('layout')
 @section('body')
-    <div class="container-flui bg-dark header">
-        <div class="container">
-
-        </div>
-    </div>
+    @if(Session::has("success"))
+    <h1 class="text-center" style="color:green">{{ Session::get("success") }}</h1>
+    @endif
     <div class="container-fluid mt-1">
         <div class="row">
             <div class="col-md-12">
@@ -23,6 +21,7 @@
                             <th scope="col">Trạng thái</th>
                             <th scope="col">Ghi chú</th>
                             <th scope="col">Phòng giam</th>
+                            <th scope="col">Thay đổi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +38,10 @@
                             <td>{{$phamnhan -> trang_thai}}</td>
                             <td>{{$phamnhan -> ghi_chu}}</td>
                             <td>{{$phamnhan -> pg_id}}</td>
+                            <td>
+                                <a href="{{ url("suaPN?id=" .$phamnhan -> pn_id) }}">Sửa</a>
+                                <a onclick="return confirm('Bạn chắc chắn muốn xóa??')"  href="{{ url('/xoaPN/' .$phamnhan -> pn_id) }}">Xóa</a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

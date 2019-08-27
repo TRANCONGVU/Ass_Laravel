@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\GiamThi;
 use App\PhamNhan;
 use App\PhongGiam;
+use Exception;
+
 class MyController extends Controller
 {
     function PhamNhanList(){
@@ -126,10 +128,15 @@ class MyController extends Controller
         // ]);
         try{
             GiamThi::create([
+                "pg_id" => $request -> get("pg_id"),
                 "ten" => $request -> get("ten"),
-                "gioi_tinh" => $request -> get("gioi_tinh"),
+                "ngay_sinh" => $request -> get("ngay_sinh"),
+                "gioitinh" => $request -> get("gioitinh"),
                 "so_cmt" => $request -> get("so_cmt"),
-                "chuc_vu" => $request -> get("chuc_vu"),
+                "toi_danh" => $request -> get("toi_danh"),
+                "ngay_vao" => $request -> get("ngay_vao"),
+                "thoi_gian" => $request -> get("thoi_gian"),
+                "trang_thai" => $request -> get("trang_thai"),
                 "ghi_chu" => $request -> get("ghi_chu")
             ])-> save();
         }
@@ -137,5 +144,74 @@ class MyController extends Controller
             die($e -> getMessage());
         }
         return redirect("/giam-thi");
+    }
+
+
+
+
+    //xoa du lieu
+    function xoaPN($id){
+        $phamnhan = PhamNhan::find($id);
+        try{
+            $phamnhan -> delete();
+        }
+        catch(Exception $e){
+            die($e -> getMessage());
+        }
+        return redirect("pham-nhan")->with("success","Xóa thành công !");
+    }
+    function suaPN(Request $request){
+        $pn_id = $request -> get("id");
+        $phamnhan = PhamNhan::find($pn_id);
+        $phonggiams = PhongGiam::orderBy("pg_id","ASC") -> get();
+
+        return view("update.suapn" ,compact("phamnhan","phonggiams"));
+    }
+
+    function updatePN(Request $request){
+        $phamnhan = PhamNhan::find($request -> get("id"));
+        $messages = [
+            "required" => "vui lòng nhập vào thông tin",
+            "string" => "Phải nhập vào 1 chuỗi",
+            "numeric" => "Nhập vào một số",
+            "min" => "giá trị tối thiểu 0",
+            "max" => "tối đa 255 ký tự",
+            "unique" => "Đã tồn tại",
+        ];
+
+        $rules = [
+            "ten" => "required|string|max:255",
+            "pg_id" => "required|numeric",
+            "ngay_sinh" => "required",
+            "so_cmt" => "required|numeric",
+            "toi_danh" => "required|string",
+            "ngay_vao" => "required",
+            "thoi_gian" => "required",
+            "trang_thai" => "required|string",
+            "ghi_chu" => "required|string"
+        ];
+        // dd($request->all());
+
+        $this -> validate($request , $rules , $messages);
+
+        try{
+            $phamnhan -> update([
+                "ten" => $request -> get("ten"),
+                "ngay_sinh" => $request -> get("ngay_sinh"),
+                "ngay_vao" => $request -> get("ngay_vao"),
+                "gioitinh" => $request -> get("gioi_tinh"),
+                "so_cmt" => $request -> get("so_cmt"),
+                "toi_danh" => $request -> get("toi_danh"),
+                "thoi_gian" => $request -> get("thoi_gian"),
+                "trang_thai" => $request -> get("trang_thai"),
+                "ghi_chu" => $request -> get("ghi_chu"),
+                "pg_id" => $request -> get("pg_id"),
+            ]);
+        }
+        catch(\Exception $e){
+            die( $e -> getMessage());
+        }
+
+        return redirect("/pham-nhan");
     }
 }

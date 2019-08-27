@@ -47,11 +47,11 @@ $factory -> define(\App\PhamNhan::class,function (Faker $faker){
    return[
        'pg_id' => $faker -> randomFloat(0,1,40),
        'ten' => $faker -> name,
-       'ngay_sinh' => $faker -> dateTime,
+       'ngay_sinh' => $faker -> date($format = 'Y-m-d', $max = 'now'),
        'gioitinh' => $faker -> boolean,
        'so_cmt' =>$faker -> creditCardNumber,
        'toi_danh' => $faker -> title,
-        'ngay_vao' => $faker -> dateTime,
+        'ngay_vao' => $faker -> date($format = 'Y-m-d', $max = 'now'),
         'thoi_gian' => $faker -> buildingNumber,
         'trang_thai' => $faker -> titleMale,
        'ghi_chu' => $faker ->title
