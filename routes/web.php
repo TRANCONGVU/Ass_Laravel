@@ -11,6 +11,7 @@
 |
 */
 
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,43 +21,37 @@ Route::get('/list',function()
     return view('danhsach.danhsach');
 });
 
-Route::get('hello' ,"DemoController@helloWorld");
-
-Route::get('/say-hello' , "DemoController@sayHello");
 Route::get('/pham-nhan',"MyController@PhamNhanList");
 Route::get('/giam-thi',"MyController@GiamThiList");
 Route::get('/phong-giam',"MyController@PhongGiamList");
 
-Route::get('/them-pham-nhan',"MyController@themPN");
-Route::post('/them-pham-nhan',"MyController@luuPN");
-
-Route::get('/them-phong-giam',"MyController@themPG");
-Route::post('them-phong-giam',"MyController@luuPG");
-
-Route::get('/them-giam-thi',"MyController@themGT");
-Route::post('/them-giam-thi',"MyController@luuGT");
-
-//sửa xóa dữ liệu
-
-Route::get('/xoaPN/{id}',"MyController@xoaPN");
-Route::get('/suaPN',"MyController@suaPN");
-Route::post('/suaPN',"MyController@updatePN");
 
 
-Route::get('/xoaGT/{id}',"MyController@xoaGT");
-Route::get('/suaGT',"MyController@suaGT");
-Route::post('/suaGT',"MyController@updateGT");
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/them-pham-nhan',"MyController@themPN");
+    Route::post('/them-pham-nhan',"MyController@luuPN");
 
-Route::get('/xoaPG/{id}',"MyController@xoaPG");
-Route::get('/suaPG',"MyController@suaPG");
-Route::post('/suaPG',"MyController@updatePG");
-//
+    Route::get('/them-phong-giam',"MyController@themPG");
+    Route::post('them-phong-giam',"MyController@luuPG");
+
+    Route::get('/them-giam-thi',"MyController@themGT");
+    Route::post('/them-giam-thi',"MyController@luuGT");
 
 
-Auth::routes();
+    //sửa xóa dữ liệu
+    Route::get('/xoaPN/{id}',"MyController@xoaPN");
+    Route::get('/suaPN',"MyController@suaPN");
+    Route::post('/suaPN',"MyController@updatePN");
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+    Route::get('/xoaGT/{id}',"MyController@xoaGT");
+    Route::get('/suaGT',"MyController@suaGT");
+    Route::post('/suaGT',"MyController@updateGT");
+
+    Route::get('/xoaPG/{id}',"MyController@xoaPG");
+    Route::get('/suaPG',"MyController@suaPG");
+    Route::post('/suaPG',"MyController@updatePG");
+    //
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
