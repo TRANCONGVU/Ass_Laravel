@@ -1,6 +1,9 @@
 @extends('layout')
 @section('body')
 <div class="container-fluid">
+        @if(Session::has("success"))
+        <h1 class="text-center" style="color:green">{{ Session::get("success") }}</h1>
+        @endif
     <div>
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
@@ -11,17 +14,22 @@
                     <th scope="col">Chỗ Trống</th>
                     <th scope="col">Ghi chú</th>
                     <th scope="col">Giám thị</th>
+                    <th scope="col">Sửa</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($phonggiams as $phonggiam)
-                    <tr>
+                    <tr class="danhsach">
                         <td scope="row">{{ $phonggiam -> pg_id }}</td>
                         <td>{{ $phonggiam -> ten_pg }}</td>
                         <td>{{ $phonggiam -> so_pn }} &nbsp người</td>
                         <td>{{ $phonggiam -> cho_trong }}&nbsp chỗ trống</td>
                         <td>{{ $phonggiam -> ghi_chu }}</td>
                         <td>{{ $phonggiam -> gt_id }}</td>
+                        <td>
+                            <a href="{{ url("suaPG?id=".$phonggiam -> pg_id) }}">Sửa</a> &nbsp
+                            <a onclick="return confirm('Bạn chắc chắn muốn xóa??')"  href="{{ url('/xoaPG/' .$phonggiam -> pg_id) }}">Xóa</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

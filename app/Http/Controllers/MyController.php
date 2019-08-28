@@ -29,21 +29,7 @@ class MyController extends Controller
         ]);
         return view('danhsach.listpg',compact('phonggiams'));
     }
-    public $messages = [
-        "required" => "vui lòng nhập vào thông tin",
-        "string" => "Phải nhập vào 1 chuỗi",
-        "numeric" => "Nhập vào một số",
-        "min" => "giá trị tối thiểu 0",
-        "max" => "tối đa 255 ký tự",
-        "unique" => "Đã tồn tại",
-    ];
 
-    public $rules = [
-        "book_name" => "required|string|max:255|unique:book",
-        "qty" => "required|numeric|min:0",
-        "author_id" => "required|numeric",
-        "nxb_id" => "required|numeric"
-    ];
     function themPN(){
         $phamnhans = PhamNhan::orderBy("pn_id","ASC")->get();
         $phonggiams = PhongGiam::orderBy("pg_id","ASC")->get();
@@ -99,9 +85,24 @@ class MyController extends Controller
         return view("them.themphong" , compact("phonggiams","giamthis"));
     }
     function luuPG(request $request){
-        $this->validate($request,[
-            "ten_pg" => "required|string|max:255|unique:PhongGiam",
-        ]);
+         $messages = [
+            "required" => "vui lòng nhập thông tin vào trường này",
+            "string" => "Phải nhập vào 1 chuỗi",
+            "numeric" => "Nhập vào một số",
+            "min" => "giá trị tối thiểu 0",
+            "max" => "tối đa 255 ký tự",
+            "unique" => "Đã tồn tại",
+            "date" => "nhập vào ngày tháng năm"
+        ];
+
+        $rules =[
+            "gt_id" => "required|numeric",
+            "ten_pg" => "required|string|unique:PhongGiam",
+            "so_pn" => "required|numeric",
+            "cho_trong" => "required|numeric",
+            "ghi_chu" => "required|string"
+        ];
+        $this->validate($request, $rules , $messages);
         try{
             PhongGiam::create([
                 "ten_pg" => $request -> get("ten_pg"),
@@ -126,18 +127,30 @@ class MyController extends Controller
         // $this->validate($request,[
         //     "ten" => "required|string|max:255",
         // ]);
+        $messages = [
+            "required" => "vui lòng nhập thông tin vào trường này",
+            "string" => "Phải nhập vào 1 chuỗi",
+            "numeric" => "Nhập vào một số",
+            "min" => "giá trị tối thiểu 0",
+            "max" => "tối đa 255 ký tự",
+            "unique" => "Đã tồn tại",
+            "date" => "nhập vào ngày tháng năm"
+        ];
+
+        $rules =[
+            "ten" => "required|string",
+            "so_cmt" => "required|numeric|unique:GiamThi",
+            "chuc_vu" => "required|string",
+            "ghi_chu" => "required|string"
+        ];
+        $this->validate($request, $rules , $messages);
         try{
             GiamThi::create([
-                "pg_id" => $request -> get("pg_id"),
                 "ten" => $request -> get("ten"),
-                "ngay_sinh" => $request -> get("ngay_sinh"),
-                "gioitinh" => $request -> get("gioitinh"),
-                "so_cmt" => $request -> get("so_cmt"),
-                "toi_danh" => $request -> get("toi_danh"),
-                "ngay_vao" => $request -> get("ngay_vao"),
-                "thoi_gian" => $request -> get("thoi_gian"),
-                "trang_thai" => $request -> get("trang_thai"),
-                "ghi_chu" => $request -> get("ghi_chu")
+                "gioi_tinh" => $request -> get('gioi_tinh'),
+                "so_cmt" => $request -> get('so_cmt'),
+                "chuc_vu" => $request -> get('chuc_vu'),
+                "ghi_chu" => $request -> get('ghi_chu')
             ])-> save();
         }
         catch(Exception $e){
@@ -160,6 +173,31 @@ class MyController extends Controller
         }
         return redirect("pham-nhan")->with("success","Xóa thành công !");
     }
+
+    function xoaPG($id){
+        $phonggiam = PhongGiam::find($id);
+        try{
+            $phonggiam -> delete();
+        }
+        catch(Exception $e){
+            die($e -> getMessage());
+        }
+        return redirect("phong-giam")->with("success","Xóa thành công !");
+    }
+
+    function xoaGT($id){
+        $giamthi = GiamThi::find($id);
+        try{
+            $giamthi -> delete();
+        }
+        catch(Exception $e){
+            die($e -> getMessage());
+        }
+        return redirect("phong-giam")->with("success","Xóa thành công !");
+    }
+
+    // sua thong tin
+
     function suaPN(Request $request){
         $pn_id = $request -> get("id");
         $phamnhan = PhamNhan::find($pn_id);
@@ -167,7 +205,20 @@ class MyController extends Controller
 
         return view("update.suapn" ,compact("phamnhan","phonggiams"));
     }
+    function suaPG(Request $request){
+        $pg_id = $request -> get("id");
+        $phonggiam = PhongGiam::find($pg_id);
+        $giamthis = GiamThi::orderBy("gt_id","ASC") -> get();
 
+        return view("update.suapg" ,compact("giamthis","phonggiam"));
+    }
+    function suaGT(Request $request){
+        $gt_id = $request -> get("id");
+        $giamthi = GiamThi::find($gt_id);
+        return view("update.suagt" ,compact("giamthi"));
+    }
+
+    // luu lai thong tin da sua
     function updatePN(Request $request){
         $phamnhan = PhamNhan::find($request -> get("pn_id"));
         $messages = [
@@ -213,5 +264,79 @@ class MyController extends Controller
         }
 
         return redirect("/pham-nhan");
+    }
+
+    function updatePG(Request $request){
+        $phonggiam = PhongGiam::find($request -> get("pg_id"));
+        $messages = [
+            "required" => "vui lòng nhập vào thông tin",
+            "string" => "Phải nhập vào 1 chuỗi",
+            "numeric" => "Nhập vào một số",
+            "min" => "giá trị tối thiểu 0",
+            "max" => "tối đa 255 ký tự",
+            "unique" => "Đã tồn tại",
+        ];
+
+        $rules = [
+            "ten_pg" => "required|string|max:255",
+            "so_pn" => "required|numeric",
+            "cho_trong" => "required|numeric",
+            "ghi_chu" => "required|string"
+        ];
+        // dd($request->all());
+
+        $this -> validate($request , $rules , $messages);
+
+        try{
+            $phonggiam -> update([
+                "ten_pg" => $request -> get("ten_pg"),
+                "so_pn" => $request -> get("so_pn"),
+                "cho_trong" => $request -> get("cho_trong"),
+                "ghi_chu" => $request -> get("ghi_chu")
+
+            ]);
+        }
+        catch(\Exception $e){
+            die( $e -> getMessage());
+        }
+
+        return redirect("/phong-giam");
+    }
+
+    function updateGT(Request $request){
+        $giamthi = GiamThi::find($request -> get("gt_id"));
+        $messages = [
+            "required" => "vui lòng nhập vào thông tin",
+            "string" => "Phải nhập vào 1 chuỗi",
+            "numeric" => "Nhập vào một số",
+            "min" => "giá trị tối thiểu 0",
+            "max" => "tối đa 255 ký tự",
+            "unique" => "Đã tồn tại",
+        ];
+
+        $rules = [
+            "ten" => "required|string|max:255",
+            "so_cmt" => "required|numeric|unique:GiamThi,so_cmt,".$giamthi -> gt_id. ",gt_id",
+            "chuc_vu" => "required|string|max:255",
+            "ghi_chu" => "required|string|max:255"
+        ];
+        // dd($request->all());
+
+        $this -> validate($request , $rules , $messages);
+
+        try{
+            $giamthi -> update([
+                "ten" => $request -> get("ten"),
+                "so_cmt" => $request -> get("so_cmt"),
+                "chuc_vu" => $request -> get("chuc_vu"),
+                "ghi_chu" => $request -> get("ghi_chu")
+
+            ]);
+        }
+        catch(\Exception $e){
+            die( $e -> getMessage());
+        }
+
+        return redirect("/giam-thi");
     }
 }

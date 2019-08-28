@@ -41,6 +41,15 @@ Route::post('/them-giam-thi',"MyController@luuGT");
 Route::get('/xoaPN/{id}',"MyController@xoaPN");
 Route::get('/suaPN',"MyController@suaPN");
 Route::post('/suaPN',"MyController@updatePN");
+
+
+Route::get('/xoaGT/{id}',"MyController@xoaGT");
+Route::get('/suaGT',"MyController@suaGT");
+Route::post('/suaGT',"MyController@updateGT");
+
+Route::get('/xoaPG/{id}',"MyController@xoaPG");
+Route::get('/suaPG',"MyController@suaPG");
+Route::post('/suaPG',"MyController@updatePG");
 //
 
 
