@@ -36,7 +36,7 @@
         </table>
         <div class="d-flex justify-content-between">
 
-            <a href="{{ url('/them-phong-giam') }}" class="btn btn-outline-dark mb-3">Tạo Thêm Phòng</a>
+            <a href="{{ url('/them-phong-giam') }}" class="btn btn-dark mb-3">Tạo Thêm Phòng</a>
             <div>
                     {!! $phonggiams -> Links() !!}
             </div>

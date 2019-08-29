@@ -36,7 +36,7 @@
     </table>
     <div class="d-flex justify-content-between">
 
-            <a href="{{ url('/them-giam-thi') }}" class="btn btn-outline-danger mb-4">Thêm giám thị</a>
+            <a href="{{ url('/them-giam-thi') }}" class="btn btn-danger mb-4">Thêm giám thị</a>
             {!! $giamthis -> Links() !!}
     </div>
 </div>

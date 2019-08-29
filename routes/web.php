@@ -21,13 +21,17 @@ Route::get('/list',function()
     return view('danhsach.danhsach');
 });
 
+Route::get('/admin', function(){
+    return view('admin.layout.admin');
+});
+
 Route::get('/pham-nhan',"MyController@PhamNhanList");
 Route::get('/giam-thi',"MyController@GiamThiList");
 Route::get('/phong-giam',"MyController@PhongGiamList");
 
 
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'admin'], function () {
     Route::get('/them-pham-nhan',"MyController@themPN");
     Route::post('/them-pham-nhan',"MyController@luuPN");
 

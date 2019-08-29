@@ -1,5 +1,5 @@
-@extends('layout')
-@section('body')
+@extends('admin.layout.admin_layout')
+@section('admin')
 <div class="container my-5">
     <h2>Thêm Phạm Nhân</h2>
     <form action="{{ url('/them-pham-nhan') }}" method="POST">
