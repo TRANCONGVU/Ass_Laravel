@@ -1,5 +1,5 @@
-@extends('layout')
-@section('body')
+@extends('admin.layout.admin_layout')
+@section('admin')
 <div class="container my-5">
     <h2>Thay đổi thông tin phạm nhân</h2>
     <form action="{{ url('/suaPN') }}" method="post">
@@ -9,7 +9,7 @@
             <label for="pn">Tên phạm nhân</label>
             <input type="text" name="ten" id="" class="form-control" value="{{ $phamnhan -> ten }}">
             @if($errors -> has("ten"))
-            <p class="error">{{ $errors -> first("ten") }}</p>               
+            <p class="error">{{ $errors -> first("ten") }}</p>
             @endif
         </div>
         <div class="form-group">

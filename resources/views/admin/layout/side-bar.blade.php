@@ -103,9 +103,9 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-                    <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-                    <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+                    <li><a href="{{ url('/pham-nhan') }}"><i class="fa fa-circle-o"></i>Phạm Nhân</a></li>
+                    <li><a href="{{ url('/giam-thi') }}"><i class="fa fa-circle-o"></i>Giám Thị</a></li>
+                    <li><a href="{{ url('/phong-giam') }}"><i class="fa fa-circle-o"></i>Phòng Giam</a></li>
                 </ul>
             </li>
             <li class="treeview">

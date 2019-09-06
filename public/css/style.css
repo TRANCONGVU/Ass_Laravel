@@ -8486,3 +8486,12 @@ thead th {
     /* font-style: italic; */
     text-transform: capitalize;
 }
+.login-card {
+    width: 500px !important;
+}
+.login-style{
+    width: 100%;
+    background-size: cover;
+    background-image: url('https://www.baocalitoday.com/wp-content/uploads/2018/05/nha-tu.jpg');
+    height: 600px;
+}

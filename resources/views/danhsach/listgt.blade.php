@@ -1,5 +1,5 @@
-@extends('layout')
-@section('body')
+@extends('admin.layout.admin_layout')
+@section('admin')
 <div class="container-fluid">
     @if(Session::has("success"))
     <h1 class="text-center" style="color:green">{{ Session::get("success") }}</h1>

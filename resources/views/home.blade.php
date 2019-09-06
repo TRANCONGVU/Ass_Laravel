@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('content')
+@section('content-login')
 <div class="container">
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -15,6 +16,7 @@
                     @endif
 
                     You are logged in!
+                    <h5>Tiếp tục </h5>
                 </div>
             </div>
         </div>
