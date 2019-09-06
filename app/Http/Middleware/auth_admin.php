@@ -20,7 +20,7 @@ class auth_admin
             if(Auth::user()->isAdmin()){
                 return $next($request);
             }
-            return redirect('/pham-nhan');
+            return redirect('/');
         }
         return redirect('/login');
     }

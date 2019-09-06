@@ -16,7 +16,14 @@
                     @endif
 
                     You are logged in!
-                    <h5>Tiếp tục </h5>
+                    <h5>Tiếp tục</h5>
+                        <div class="d-flex flex-column">
+                                <a href="{{ url('/pham-nhan') }}">Danh sách phạm nhân</a>
+                                <a href="{{ url('/giam-thi') }}">Danh sách giám thị</a>
+                                <a href="{{ url('/phong-giam') }}">Danh sách phòng giam</a>
+                        </div>
+
+
                 </div>
             </div>
         </div>

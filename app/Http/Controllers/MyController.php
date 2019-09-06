@@ -13,14 +13,15 @@ class MyController extends Controller
 {
     function PhamNhanList(){
        // dd(Auth::user());
-       $user = Auth::user();
-       if( !$user -> isAdmin() && $user->id == 1){
-           $user -> admin = 1;
-           $user -> save();
-       }
+    //    $user = Auth::user();
+    //    if( !$user -> isAdmin() && $user->id == 1){
+    //        $user -> admin = 1;
+    //        $user -> save();
+    //    }
         $phamnhans = PhamNhan::join("PhongGiam","PhamNhan.pg_id","=","PhongGiam.pg_id")
         ->orderBy("pn_id","ASC")->paginate(10,["PhamNhan.pn_id"
-        ,"ten_pg as pg_id","ten","PhamNhan.ngay_sinh","PhamNhan.gioitinh","PhamNhan.trang_thai","PhamNhan.so_cmt","PhamNhan.toi_danh","PhamNhan.ngay_vao",
+        ,"ten_pg as pg_id","ten","PhamNhan.ngay_sinh","PhamNhan.gioitinh","PhamNhan.trang_thai","PhamNhan.so_cmt","PhamNhan.toi_danh",
+        "PhamNhan.ngay_vao",
         "PhamNhan.thoi_gian","PhamNhan.ghi_chu"]);
         return view('danhsach.list',compact("phamnhans"));
     }
