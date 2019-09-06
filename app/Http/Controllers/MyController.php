@@ -7,10 +7,12 @@ use App\GiamThi;
 use App\PhamNhan;
 use App\PhongGiam;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 
 class MyController extends Controller
 {
     function PhamNhanList(){
+        dd(Auth::user());
         $phamnhans = PhamNhan::join("PhongGiam","PhamNhan.pg_id","=","PhongGiam.pg_id")
         ->orderBy("pn_id","ASC")->paginate(10,["PhamNhan.pn_id"
         ,"ten_pg as pg_id","ten","PhamNhan.ngay_sinh","PhamNhan.gioitinh","PhamNhan.trang_thai","PhamNhan.so_cmt","PhamNhan.toi_danh","PhamNhan.ngay_vao",
