@@ -4,6 +4,7 @@
 use App\User;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
+use Faker\Provider\hy_AM\PhoneNumber;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,4 +57,13 @@ $factory -> define(\App\PhamNhan::class,function (Faker $faker){
         'trang_thai' => $faker -> titleMale,
        'ghi_chu' => $faker ->title
    ] ;
+});
+$factory -> define(\App\Student::class,function (Faker $faker){
+    return[
+        'id' => $faker -> randomFloat(0,1,40),
+        'name' => $faker -> name ,
+        'age' => $faker -> randomFloat(1,1,25),
+        'adress' => $faker -> address,
+        'telephone' => $faker -> creditCardNumber,
+    ] ;
 });

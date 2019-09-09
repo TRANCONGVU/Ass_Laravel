@@ -10,5 +10,6 @@ class UserTableSeeder extends Seeder
         factory(App\GiamThi::class,20)->create();
         factory(App\PhongGiam::class,40)->create();
         factory(App\PhamNhan::class,100)->create();
+        factory(App\Student::class,40)->create();
     }
 }

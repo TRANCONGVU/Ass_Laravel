@@ -16,6 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/list',function()
 {
     return view('danhsach.danhsach');
@@ -42,8 +43,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/them-giam-thi',"MyController@themGT");
     Route::post('/them-giam-thi',"MyController@luuGT");
 
-
-    //sửa xóa dữ liệu
     Route::get('/xoaPN/{id}',"MyController@xoaPN");
     Route::get('/suaPN',"MyController@suaPN");
     Route::post('/suaPN',"MyController@updatePN");
@@ -60,3 +59,8 @@ Route::group(['middleware' => 'admin'], function () {
 });
 
 Route::get('/home', 'HomeController@index');
+
+
+Route::get('/student',"DemoController@StudentList");
+Route::get('/add-student',"DemoController@addStudent");
+Route::post('/add-student',"DemoController@saveStudent");
