@@ -11,7 +11,7 @@
                     @foreach ($phamnhans as $phamnhan)
                          <div class="col-md-4 my-5">
                             <div class="box d-flex flex-column">
-                                    <img class="card-img-top" src="https://image.tienphong.vn/w665/Uploaded/2019/pcgycivo/2019_07_23/1_jvlf.jpg" alt="">
+                                    <img class="card-img-top" src="img/a.jpg" alt="">
                                     <span class="name">Họ và Tên :{{ $phamnhan -> ten }}</span>
                                     <span>Số chứng minh thư :{{ $phamnhan -> so_cmt }}</span>
                                     <span>Ngày sinh :{{ $phamnhan -> ngay_sinh }}</span>
@@ -23,7 +23,9 @@
                             </div>
                         </div>
                     @endforeach
-
+                    <div style="float : right">
+                        {!! $phamnhans -> Links() !!}
+                    </div>
 
 
                 </div>

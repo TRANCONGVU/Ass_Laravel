@@ -31,6 +31,9 @@
                             <a class="navbar-brand" href="{{ url('/') }}">
                                 Quản lý nhà tù
                             </a>
+
+
+
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                                 <span class="navbar-toggler-icon"></span>
@@ -39,7 +42,15 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <!-- Left Side Of Navbar -->
                                 <ul class="navbar-nav mr-auto">
-
+                                    <li class="nav-item px-3">
+                                        <a href="{{ url('pham-nhan') }}">Phạm Nhân</a>
+                                    </li>
+                                    <li class="nav-item px-3">
+                                        <a href="{{ url('phong-giam') }}">Phòng Giam</a>
+                                    </li>
+                                    <li class="nav-item px-3">
+                                        <a href="{{ url('giam-thi') }}">Giám Thị</a>
+                                    </li>
                                 </ul>
 
                                 <!-- Right Side Of Navbar -->
