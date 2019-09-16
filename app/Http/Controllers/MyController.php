@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\GiamThi;
 use App\PhamNhan;
 use App\PhongGiam;
+use Carbon\Carbon;
 use Exception;
+use Pusher\Pusher;
 use Illuminate\Support\Facades\Auth;
 
 class MyController extends Controller
@@ -59,7 +61,7 @@ class MyController extends Controller
             "pg_id" => "required|numeric",
             "ten" => "required|string",
             "ngay_sinh" => "required|date",
-            "so_cmt" => "required|numeric",
+            "so_cmt" => "required|numeric|unique:PhamNhan",
             "toi_danh" => "required|string",
             "ngay_vao" => "date",
             "thoi_gian" => "required|numeric",
@@ -80,11 +82,26 @@ class MyController extends Controller
                 "trang_thai" => $request -> get("trang_thai"),
                 "ghi_chu" => $request -> get("ghi_chu")
             ])-> save();
+            $data = [
+                // "message" => "vừa thêm phạm nhân mới có tên : ".$request->get("ten")
+                "pg_id" => $request -> get("pg_id"),
+                "ten" => $request -> get("ten"),
+                "ngay_sinh" => $request -> get("ngay_sinh"),
+                "gioitinh" => $request -> get("gioitinh"),
+                "so_cmt" => $request -> get("so_cmt"),
+                "toi_danh" => $request -> get("toi_danh"),
+                "ngay_vao" => $request -> get("ngay_vao"),
+                "thoi_gian" => $request -> get("thoi_gian"),
+                "trang_thai" => $request -> get("trang_thai"),
+                "ghi_chu" => $request -> get("ghi_chu"),
+                "created_at" => Carbon::now()
+            ];
+            sendNotify('my-channel', 'my-event', $data);
         }
         catch(\Exception $e){
             die($e -> getMessage());
         }
-        return redirect("/pham-nhan");
+        return redirect("admin/pham-nhan");
     }
 
     function themPG(){
@@ -179,7 +196,7 @@ class MyController extends Controller
         catch(Exception $e){
             die($e -> getMessage());
         }
-        return redirect("pham-nhan")->with("success","Xóa thành công !");
+        return redirect("admin/pham-nhan")->with("success","Xóa thành công !");
     }
 
     function xoaPG($id){
@@ -190,7 +207,7 @@ class MyController extends Controller
         catch(Exception $e){
             die($e -> getMessage());
         }
-        return redirect("phong-giam")->with("success","Xóa thành công !");
+        return redirect("admin/phong-giam")->with("success","Xóa thành công !");
     }
 
     function xoaGT($id){
@@ -201,7 +218,7 @@ class MyController extends Controller
         catch(Exception $e){
             die($e -> getMessage());
         }
-        return redirect("phong-giam")->with("success","Xóa thành công !");
+        return redirect("admin/phong-giam")->with("success","Xóa thành công !");
     }
 
     // sua thong tin

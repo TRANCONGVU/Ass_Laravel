@@ -41,14 +41,14 @@
                         <td>
                             <a href="{{ url("suaPN?id=" .$phamnhan -> pn_id) }}">Sửa</a> &nbsp
                             <a onclick="return confirm('Bạn chắc chắn muốn xóa??')"
-                                href="{{ url('/xoaPN/' .$phamnhan -> pn_id) }}">Xóa</a>
+                                href="{{ url('admin/xoaPN/' .$phamnhan -> pn_id) }}">Xóa</a>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
 
             </table>
-            <a href="{{ url('/them-pham-nhan') }}" class="btn btn-danger">Thêm Phạm Nhân</a>
+            <a href="{{ url('admin/them-pham-nhan') }}" class="btn btn-danger">Thêm Phạm Nhân</a>
             <div style="float : right">
                 {!! $phamnhans -> Links() !!}
             </div>

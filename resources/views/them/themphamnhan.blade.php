@@ -2,7 +2,7 @@
 @section('admin')
 <div class="container my-5">
     <h2>Thêm Phạm Nhân</h2>
-    <form action="{{ url('/them-pham-nhan') }}" method="POST">
+    <form action="{{ url('admin/them-pham-nhan') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="pn">Tên phạm nhân</label>

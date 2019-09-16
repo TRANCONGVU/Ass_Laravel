@@ -8495,3 +8495,7 @@ thead th {
     background-image: url('https://www.baocalitoday.com/wp-content/uploads/2018/05/nha-tu.jpg');
     height: 600px;
 }
+.box {
+    background: #f4f6f8;
+    padding: 10px;
+}

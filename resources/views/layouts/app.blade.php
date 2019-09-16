@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body  >
      <div class="container-fluid">
@@ -77,8 +78,9 @@
                             </div>
                         </div>
                     </nav>
-                    <main class="py-4 login-style">
+                    <main class="py-4">
                         @yield('content-login')
+                        @yield('content')
                     </main>
                 </div>
     </div>
