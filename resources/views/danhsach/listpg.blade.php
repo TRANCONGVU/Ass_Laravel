@@ -27,8 +27,8 @@
                         <td>{{ $phonggiam -> ghi_chu }}</td>
                         <td>{{ $phonggiam -> gt_id }}</td>
                         <td>
-                            <a href="{{ url("suaPG?id=".$phonggiam -> pg_id) }}">Sửa</a> &nbsp
-                            <a onclick="return confirm('Bạn chắc chắn muốn xóa??')"  href="{{ url('/xoaPG/' .$phonggiam -> pg_id) }}">Xóa</a>
+                            <a href="{{ url("admin/suaPG?id=".$phonggiam -> pg_id) }}">Sửa</a> &nbsp
+                            <a onclick="return confirm('Bạn chắc chắn muốn xóa??')"  href="{{ url('admin/xoaPG/' .$phonggiam -> pg_id) }}">Xóa</a>
                         </td>
                     </tr>
                 @endforeach
@@ -36,7 +36,7 @@
         </table>
         <div class="d-flex justify-content-between">
 
-            <a href="{{ url('/them-phong-giam') }}" class="btn btn-dark mb-3">Tạo Thêm Phòng</a>
+            <a href="{{ url('admin/them-phong-giam') }}" class="btn btn-dark mb-3">Tạo Thêm Phòng</a>
             <div>
                     {!! $phonggiams -> Links() !!}
             </div>

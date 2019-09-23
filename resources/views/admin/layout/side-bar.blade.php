@@ -103,9 +103,9 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('/pham-nhan') }}"><i class="fa fa-circle-o"></i>Phạm Nhân</a></li>
-                    <li><a href="{{ url('/giam-thi') }}"><i class="fa fa-circle-o"></i>Giám Thị</a></li>
-                    <li><a href="{{ url('/phong-giam') }}"><i class="fa fa-circle-o"></i>Phòng Giam</a></li>
+                    <li><a href="{{ url('admin/them-pham-nhan') }}"><i class="fa fa-circle-o"></i>Phạm Nhân</a></li>
+                    <li><a href="{{ url('admin/them-giam-thi') }}"><i class="fa fa-circle-o"></i>Giám Thị</a></li>
+                    <li><a href="{{ url('admin/them-phong-giam') }}"><i class="fa fa-circle-o"></i>Phòng Giam</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -116,9 +116,9 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('/pham-nhan') }}"><i class="fa fa-circle-o"></i>Phạm Nhân</a></li>
-                    <li><a href="{{ url('/giam-thi') }}"><i class="fa fa-circle-o"></i>Giám Thị</a></li>
-                    <li><a href="{{ url('/phong-giam') }}"><i class="fa fa-circle-o"></i>Phòng Giam</a></li>
+                    <li><a href="{{ url('admin/pham-nhan') }}"><i class="fa fa-circle-o"></i>Phạm Nhân</a></li>
+                    <li><a href="{{ url('admin/giam-thi') }}"><i class="fa fa-circle-o"></i>Giám Thị</a></li>
+                    <li><a href="{{ url('admin/phong-giam') }}"><i class="fa fa-circle-o"></i>Phòng Giam</a></li>
                 </ul>
             </li>
             <li>

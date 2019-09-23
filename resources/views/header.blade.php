@@ -1,40 +1,47 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-    <a class="navbar-brand" href="#">Nhà Tù ShawShank</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+	<nav class="nav-horizontal container-fluid">
+	    <div class="nav-horizontal-container container">
+	        <div class="nav-horizontal-content">
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/pham-nhan') }}">Danh sách phạm nhân<span
-                        class="sr-only">(current)</span></a>
-            </li>
+	            <ul class="nav-ul-lv-1">
+	                <li style="margin-right : 50px">
+	                    <img src="image/logo.png" width="100px" alt="">
+	                </li>
+	                <li><a href="#">Trang chủ</a></li>
+	                <li><a href="#">Tội Phạm</a></li>
+	                <li><a href="#">Phòng Giam</a></li>
+	                <li><a href="#">GIÁM THỊ</a></li>
+	            </ul>
+	            <div class="menu-mobile-button"><i class="fas fa-bars"></i></div>
+	        </div>
+	    </div>
+	</nav>
+	<script type="text/javascript" src="js/nav-horizontal.js"></script>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/phong-giam') }}">Danh sách phòng giam</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/giam-thi') }}">Danh sách giám thị</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-</nav>
-<script type="text/javascript">
-    {
-        {
-            --$(".nav-link").on("click", function () {
-                $('.nav-link').addClass('active');
-                alert('add active');
+	<section class="menu-mobile">
+	    <div class="menu-mobile-bg"></div>
+	    <div class="menu-mobile-box">
+	        <div class="menu-mobile-info">
 
-            });
-            --
-        }
-    }
+	        </div>
+	        <div class="menu-mobile-content">
+	            <div class="menu-left">
+	                <div class="menu-left-title">
+	                    <h3>Menu</h3>
+	                </div>
+	                <div class="menu-left-content">
 
-</script>
+	                    <ul class="menu-left-ul-lv-1">
+	                        <li><a href="#">Trang chủ</a></li>
+	                        <li><a href="#">Tội Phạm</a></li>
+	                        <li><a href="#">giám thị</a></li>
+	                        <li><a href="#">Phòng Giam</a></li>
+
+	                    </ul>
+
+	                </div> <!-- menu-left-content -->
+	            </div> <!-- menu-left -->
+	            <script type="text/javascript" src="js/menu-left-js.js"></script>
+	        </div>
+	    </div>
+	    <script type="text/javascript" src="js/menu-mobile.js"></script>
+	</section>

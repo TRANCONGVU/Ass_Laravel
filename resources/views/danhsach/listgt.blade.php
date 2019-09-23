@@ -26,9 +26,9 @@
                 <td>{{ $giamthi -> chuc_vu }}</td>
                 <td>{{ $giamthi -> ghi_chu }}</td>
                 <td>
-                    <a href="{{ url("suaGT?id=" .$giamthi -> gt_id) }}">Sửa</a> &nbsp
+                    <a href="{{ url("admin/suaGT?id=" .$giamthi -> gt_id) }}">Sửa</a> &nbsp
                     <a onclick="return confirm('Bạn chắc chắn muốn xóa??')"
-                        href="{{ url('/xoaGT/' .$giamthi -> gt_id) }}">Xóa</a>
+                        href="{{ url('admin/xoaGT/' .$giamthi -> gt_id) }}">Xóa</a>
                 </td>
             </tr>
             @endforeach
@@ -36,7 +36,7 @@
     </table>
     <div class="d-flex justify-content-between">
 
-            <a href="{{ url('/them-giam-thi') }}" class="btn btn-danger mb-4">Thêm giám thị</a>
+            <a href="{{ url('admin/them-giam-thi') }}" class="btn btn-danger mb-4">Thêm giám thị</a>
             {!! $giamthis -> Links() !!}
     </div>
 </div>
