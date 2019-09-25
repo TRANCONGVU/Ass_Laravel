@@ -12,3 +12,12 @@ Route::get('a', function(){
     return view ('pages.trangchu');
 });
 Route::get('/chitiet',"HomeController@chitietPN");
+
+
+Route::get('/feedback',"DemoController@addFeedBack");
+Route::post('/feedback',"DemoController@saveFeedBack");
+
+// ajax
+
+Route::get('/', "DemoController@index");
+Route::get('/loadstudent', "DemoController@loadstudent" );
